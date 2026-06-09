@@ -63,7 +63,15 @@ You should now be located in ```/scratch```, which should contain a new file ```
 We are now prepared to run ```backproject_voxel``` using the following command:
   
 ``` 
-tomodrgn backproject_voxel run_optimisation_set_fixedpaths.star --output 00_backproject/backproject_weighted.mrc --recon-dose-weight --recon-tilt-weight --source-software warptools --image-dose-weighted false --image-ctf-premultiplied false --datadir /work/data/EMPIAR-10499/warp_tiltseries/particleseries/
+tomodrgn backproject_voxel \
+    run_optimisation_set_fixedpaths.star \
+    --output 00_backproject/backproject_weighted.mrc \
+    --recon-dose-weight \
+    --recon-tilt-weight \
+    --source-software warptools \
+    --image-dose-weighted false \
+    --image-ctf-premultiplied false \
+    --datadir /work/data/EMPIAR-10499/warp_tiltseries/particleseries/
 ```
   
 >:triangular_flag_on_post: What is going on in this command? Let's break it down together. 
@@ -80,7 +88,16 @@ To get an intuition for what you might see if you get the sign convention wrong,
 
 
 ```
-tomodrgn backproject_voxel run_optimisation_set.star --output 01_backproject_wrong/backproject_weighted.mrc --recon-dose-weight --recon-tilt-weight --source-software warptools --image-dose-weighted false --image-ctf-premultiplied false --uninvert-data --datadir /work/data/EMPIAR-10499/warp_tiltseries/particleseries/
+tomodrgn backproject_voxel \
+    run_optimisation_set.star \
+    --output 01_backproject_wrong/backproject_weighted.mrc \
+    --recon-dose-weight \
+    --recon-tilt-weight \
+    --source-software warptools \
+    --image-dose-weighted false \
+    --image-ctf-premultiplied false \
+    --uninvert-data \
+    --datadir /work/data/EMPIAR-10499/warp_tiltseries/particleseries/
 ```  
   
     
