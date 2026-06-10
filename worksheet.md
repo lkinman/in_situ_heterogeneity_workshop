@@ -55,7 +55,7 @@ Before we do that, we need to activate our tomoDRGN conda environment. We're als
 source ~/conda_init.sh
 conda activate tomodrgn
 cd /scratch
-cp /work/data/EMPIAR-10499/relion/Refine3D/job009/run_optimisation_set.star ./
+cp /work/data/EMPIAR-10499/relion/Refine3D/job009/run_optimisation_set_fixedpaths_um.star ./run_optimisation_set.star
 ```
   
 You should now be located in ```/scratch```, which should contain a new file ```run_optimisation_set.star```. The last thing we will have to do before we can proceed with validating particle extraction is fixing the relative paths in this file. To do so, just open ```run_optimisation_set.star``` in vi or a text editor of your choice. Prepend ```/work/data/EMPIAR-10499/relion``` to each of the two paths you see listed. 
@@ -64,7 +64,7 @@ We are now prepared to run ```backproject_voxel``` using the following command:
   
 ``` 
 tomodrgn backproject_voxel \
-    run_optimisation_set_fixedpaths.star \
+    run_optimisation_set.star \
     --output 00_backproject/backproject_weighted.mrc \
     --recon-dose-weight \
     --recon-tilt-weight \
@@ -197,7 +197,7 @@ Now, we can use ```filter_star``` to exclude particles from the selected cluster
   
 ```
 tomodrgn filter_star \
-    18_4Apix_box96_z128_b8_v103/run_optimisation_set_fixedpaths_tomodrgn_preprocessed.star \
+    18_4Apix_box96_z128_b8_v103/run_optimisation_set_tomodrgn_preprocessed.star \
     --starfile-type optimisation_set \
     -o 18_4Apix_box96_z128_b8_v103/run_optimisation_set_analyze49_k20_omitjunk.star \
     --labels 18_4Apix_box96_z128_b8_v103/analyze.49/kmeans20/labels.pkl \
